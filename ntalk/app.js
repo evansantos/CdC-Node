@@ -6,6 +6,11 @@ var app = express();
 // view engine setup
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(express.cookieParser('ntalk'));
+app.use(express.session());
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
 load('models')
